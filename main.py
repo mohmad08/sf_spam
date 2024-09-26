@@ -107,7 +107,6 @@ class Ui_Sferum(object):
         self.Button_Stop.setText(_translate("Sferum", "Stop"))
 
     def startBtn(self):
-        print('Start')
         array = ['a', 'n', 'y', ' ', 'f', 'o', 'r', 'd', 'q', 'w', 'y','a', 'n', 'y', ' ', 'f', 'o', 'r', 'd', 'q', 'w', 'y']
         time.sleep(3)
         self.k = 0
@@ -116,18 +115,17 @@ class Ui_Sferum(object):
         while True:
             screenshot = ImageGrab.grab()
             if screenshot.getpixel((882, 517)) != fal:
-                self.textint("Вылезла капча, на количестве: ", self.k)
-                break
+                pyautogui.press('F5')
+                time.sleep(10)
             number = random.randint(5, 20)
             self.text = ''
             for i in range(0, 10):
                 self.text += random.choice(array)
+
             pyautogui.write(self.text)
             pyautogui.press('enter')
-            self.k += 1
-            self.write_country()
-            print('Количество сообщений: ', k)
-            time.sleep(number)
+            # time.sleep(number)
+
 
 
     def write_country(self):
